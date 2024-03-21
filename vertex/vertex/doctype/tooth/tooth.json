@@ -9,7 +9,16 @@
   "tooth_name",
   "tooth_description",
   "tooth_status",
-  "date"
+  "date",
+  "pfm_laser",
+  "tempoary",
+  "inlay_and_onlay",
+  "zircon_facing_e_max",
+  "zircon_full_anatomy",
+  "zircon_layered",
+  "zircon_prettau_anterior",
+  "e_max_press",
+  "e_max_suprem"
  ],
  "fields": [
   {
@@ -37,12 +46,66 @@
    "fieldtype": "Datetime",
    "in_list_view": 1,
    "label": "Date"
+  },
+  {
+   "default": "0",
+   "fieldname": "pfm_laser",
+   "fieldtype": "Check",
+   "label": "PFM Laser"
+  },
+  {
+   "default": "0",
+   "fieldname": "tempoary",
+   "fieldtype": "Check",
+   "label": "Tempoary"
+  },
+  {
+   "default": "0",
+   "fieldname": "inlay_and_onlay",
+   "fieldtype": "Check",
+   "label": "Inlay And onlay"
+  },
+  {
+   "default": "0",
+   "fieldname": "zircon_facing_e_max",
+   "fieldtype": "Check",
+   "label": "Zircon facing e_max"
+  },
+  {
+   "default": "0",
+   "fieldname": "zircon_full_anatomy",
+   "fieldtype": "Check",
+   "label": "Zircon full anatomy"
+  },
+  {
+   "default": "0",
+   "fieldname": "zircon_layered",
+   "fieldtype": "Check",
+   "label": "Zircon layered"
+  },
+  {
+   "default": "0",
+   "fieldname": "zircon_prettau_anterior",
+   "fieldtype": "Check",
+   "label": "Zircon prettau anterior"
+  },
+  {
+   "default": "0",
+   "fieldname": "e_max_press",
+   "fieldtype": "Check",
+   "label": "e_max press"
+  },
+  {
+   "default": "0",
+   "fieldname": "e_max_suprem",
+   "fieldtype": "Check",
+   "label": "e_max suprem"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-03-21 15:43:33.671596",
+ "modified": "2024-03-21 16:42:11.320500",
  "modified_by": "Administrator",
  "module": "Vertex",
  "name": "Tooth",

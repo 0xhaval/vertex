@@ -53,15 +53,6 @@ const showDialog =(frm,doc_data=null) => {
                 read_only: doc_data ? 1 : 0
             },
             {
-                fieldname: 'field3',
-                label: 'Tooth Status',
-                fieldtype: 'Select',
-                options : ["good","bad","danger"],
-                default : doc_data ? doc_data.tooth_status : "good",
-                reqd: 1,
-                read_only: doc_data ? 1 : 0
-            },
-            {
                 fieldname: 'field4',
                 label: 'PFM Laser',
                 fieldtype: 'Check',
