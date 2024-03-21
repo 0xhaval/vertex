@@ -16,6 +16,15 @@ function getLatestToothHistory(childTable, toothName) {
 const showDialog =(frm,doc_data=null) => {
     let dialog = new frappe.ui.Dialog({
         title: 'Add a Status and Description for the Tooths selected',
+        // PFM Laser
+        // Tempoary
+        // Inlay & onlay
+        // Zircon facing e-max
+        // Zircon full anatomy
+        // Zircon layered
+        // Zircon prettau anterior
+        // e-max press
+        // e-max suprem
         fields: [
             {
                 fieldname: 'field1',
@@ -43,7 +52,69 @@ const showDialog =(frm,doc_data=null) => {
                 reqd: 1,
                 read_only: doc_data ? 1 : 0
             },
-            
+            {
+                fieldname: 'field3',
+                label: 'Tooth Status',
+                fieldtype: 'Select',
+                options : ["good","bad","danger"],
+                default : doc_data ? doc_data.tooth_status : "good",
+                reqd: 1,
+                read_only: doc_data ? 1 : 0
+            },
+            {
+                fieldname: 'field4',
+                label: 'PFM Laser',
+                fieldtype: 'Check',
+                read_only: doc_data ? 1 : 0
+            },
+            {
+                fieldname: 'field5',
+                label: 'Tempoary',
+                fieldtype: 'Check',
+                read_only: doc_data ? 1 : 0
+            },
+            {
+                fieldname: 'field6',
+                label: 'Inlay & onlay',
+                fieldtype: 'Check',
+                read_only: doc_data ? 1 : 0
+            },
+            {
+                fieldname: 'field7',
+                label: 'Zircon facing e-max',
+                fieldtype: 'Check',
+                read_only: doc_data ? 1 : 0
+            },
+            {
+                fieldname: 'field8',
+                label: 'Zircon full anatomy',
+                fieldtype: 'Check',
+                read_only: doc_data ? 1 : 0
+            },
+            {
+                fieldname: 'field9',
+                label: 'Zircon layered',
+                fieldtype: 'Check',
+                read_only: doc_data ? 1 : 0
+            },
+            {
+                fieldname: 'field10',
+                label: 'Zircon prettau anterior',
+                fieldtype: 'Check',
+                read_only: doc_data ? 1 : 0
+            },
+            {
+                fieldname: 'field11',
+                label: 'e-max press',
+                fieldtype: 'Check',
+                read_only: doc_data ? 1 : 0
+            },
+            {
+                fieldname: 'field12',
+                label: 'e-max suprem',
+                fieldtype: 'Check',
+                read_only: doc_data ? 1 : 0
+            }
             // Add more fields as needed
         ],
         primary_action: function() {
