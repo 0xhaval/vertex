@@ -1,0 +1,102 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:patient_name",
+ "creation": "2024-03-19 13:26:43.907360",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "patient_name",
+  "date_of_birth",
+  "gender",
+  "column_break_muto",
+  "last_dental_visit",
+  "next_appointment",
+  "svg_section",
+  "svg_drawing",
+  "tooth_section_section",
+  "tooth_table"
+ ],
+ "fields": [
+  {
+   "fieldname": "patient_name",
+   "fieldtype": "Data",
+   "label": "Patient Name",
+   "unique": 1
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of Birth"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "Male\nFemale"
+  },
+  {
+   "fieldname": "last_dental_visit",
+   "fieldtype": "Date",
+   "label": "Last Dental Visit"
+  },
+  {
+   "fieldname": "next_appointment",
+   "fieldtype": "Date",
+   "label": "Next Appointment"
+  },
+  {
+   "fieldname": "column_break_muto",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tooth_section_section",
+   "fieldtype": "Section Break",
+   "hidden": 1,
+   "label": "Tooth Section"
+  },
+  {
+   "fieldname": "tooth_table",
+   "fieldtype": "Table",
+   "hidden": 1,
+   "label": "Tooth Table",
+   "options": "Tooth"
+  },
+  {
+   "fieldname": "svg_section",
+   "fieldtype": "Section Break",
+   "label": "svg section"
+  },
+  {
+   "fieldname": "svg_drawing",
+   "fieldtype": "HTML",
+   "label": "svg drawing",
+   "options": "<div class=\"svgme\"></div>"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-03-21 03:46:53.614138",
+ "modified_by": "Administrator",
+ "module": "Vertex",
+ "name": "Patient",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

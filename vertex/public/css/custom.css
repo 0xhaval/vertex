@@ -1,0 +1,44 @@
+
+		[data-fieldname="svg_section"] {
+  			background: #fff;
+			text-align: center;
+			padding: 50px;
+		}
+		.tooth {
+			cursor: pointer;
+		}
+		.tooth-wrapper {
+			position: relative;
+			display: flex;
+  			align-items: center;
+  			justify-content: center;
+			
+		}
+		.tooth-number {
+			position: absolute;
+			width: fit-content;
+			padding: 0 10px;
+			text-align: left;
+			font: normal 14px/40px Arial;
+			color: #fff;
+			border-radius: 20px;
+			background: #32abab;
+			cursor: pointer;
+			-webkit-transition: all ease-out .3s;
+			-o-transition: all ease-out .3s;
+			transition: all ease-out .3s;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			-webkit-transform: rotate(0deg);
+			-moz-transform: rotate(0deg);
+			transform: rotate(0deg);
+		}
+		.tooth-number.disabled {
+			font-size: 30px;
+			background: gray;
+			padding: 0 12px;
+			-webkit-transform: rotate(-270deg);
+			-moz-transform: rotate(-270deg);
+			transform: rotate(-270deg);
+		}
