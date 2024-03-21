@@ -13,6 +13,7 @@
   "last_dental_visit",
   "next_appointment",
   "svg_section",
+  "read_only",
   "svg_drawing",
   "tooth_section_section",
   "tooth_table"
@@ -51,14 +52,12 @@
   },
   {
    "fieldname": "tooth_section_section",
-   "fieldtype": "Section Break",
-   "hidden": 1,
-   "label": "Tooth Section"
+   "fieldtype": "Tab Break",
+   "label": "Tooth History"
   },
   {
    "fieldname": "tooth_table",
    "fieldtype": "Table",
-   "hidden": 1,
    "label": "Tooth Table",
    "options": "Tooth"
   },
@@ -72,11 +71,17 @@
    "fieldtype": "HTML",
    "label": "svg drawing",
    "options": "<div class=\"svgme\"></div>"
+  },
+  {
+   "default": "0",
+   "fieldname": "read_only",
+   "fieldtype": "Check",
+   "label": "Read Only"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-03-21 03:46:53.614138",
+ "modified": "2024-03-21 16:08:40.740248",
  "modified_by": "Administrator",
  "module": "Vertex",
  "name": "Patient",

@@ -2,26 +2,48 @@
 
 var chosenElements = []; // Array to track chosen elements
 let number 
+let doc = $(document);
+function getLatestToothHistory(childTable, toothName) {
+    let latestHistory = null;
+    for (let i = 0 ; i < childTable.length; i++) {
+        let row = childTable[i];
+        if (row.tooth_name === toothName) {
+            latestHistory = row;
+        }
+    }
+    return latestHistory;
+}
 const showDialog =(frm,doc_data=null) => {
     let dialog = new frappe.ui.Dialog({
         title: 'Add a Status and Description for the Tooths selected',
         fields: [
-
             {
                 fieldname: 'field1',
+                label: 'Date of check',
+                fieldtype: 'Datetime',
+                default : doc_data ? doc_data.date : frappe.datetime.now_datetime(),
+                reqd: 1,
+                read_only: doc_data ? 1 : 0
+            },
+
+            {
+                fieldname: 'field2',
                 label: 'Description',
                 fieldtype: 'Small Text',
                 default : doc_data ? doc_data.tooth_description : "",
-                reqd: 1
+                reqd: 1,
+                read_only: doc_data ? 1 : 0
             },
             {
-                fieldname: 'field2',
+                fieldname: 'field3',
                 label: 'Tooth Status',
                 fieldtype: 'Select',
                 options : ["good","bad","danger"],
-                default : doc_data ? doc_data.status : "good",
-                reqd: 1
+                default : doc_data ? doc_data.tooth_status : "good",
+                reqd: 1,
+                read_only: doc_data ? 1 : 0
             },
+            
             // Add more fields as needed
         ],
         primary_action: function() {
@@ -34,8 +56,9 @@ const showDialog =(frm,doc_data=null) => {
             for(let i of chosenElements){
                 records_to_add.push({
                     tooth_name : i,
-                    tooth_description: values.field1,
-                    tooth_status : values.field2
+                    date : values.field1,
+                    tooth_description: values.field2,
+                    tooth_status : values.field3,
                 })
             }
             let tooth_table = frm.doc.tooth_table || [];
@@ -59,7 +82,7 @@ const showDialog =(frm,doc_data=null) => {
             }
             dialog.hide();
         },
-        primary_action_label: 'Create'
+        primary_action_label: doc_data ? "Close" : "Create"
     });
     dialog.show();
 }
@@ -70,14 +93,18 @@ frappe.ui.form.on("Patient", {
         frm.refresh()
     },
 	refresh : (frm) => {
-        let doc = $(document);
-        doc.on('click touchstart', '.tooth', function(event) {
+        
+        doc.off('click touchstart', '.tooth').on('click touchstart', '.tooth', function(event) {
             console.log("clickeddd")
             let $this = $(this)
             toothText = $this.data('title')
             $numberText = $('.tooth-number')
             number = JSON.stringify(toothText);
-
+            const lastRecord = getLatestToothHistory(frm.doc.tooth_table,number)
+            if(frm.doc.read_only && lastRecord){
+                showDialog(frm,lastRecord)
+                return
+            }
             // Toggle active class on clicked tooth
             $this.toggleClass('active');
         
@@ -87,7 +114,7 @@ frappe.ui.form.on("Patient", {
                 console.log("inside active");
                 $numberText.html('<b>Add status</b> ').data('title', 'add status');
                 number = toothText;
-            } else {
+            } else{
                 console.log("outside active");
                 let index = chosenElements.indexOf(number);
                 if (index !== -1) {
@@ -121,8 +148,9 @@ frappe.ui.form.on("Patient", {
         jQuery(document).ready(function($) {
             let $nextStep = $('[data-next-step]');
             $nextStep.on('click touchstart', function(){
-                if(!$nextStep.hasClass("disabled") && chosenElements.length > 0)
+                if(!$nextStep.hasClass("disabled")){
                     showDialog(frm,null)
+                }
             })
             for(let child of frm.doc.tooth_table){
                 $(`[data-title="${child.tooth_name}"]`).removeClass()
